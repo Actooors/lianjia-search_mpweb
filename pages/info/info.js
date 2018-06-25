@@ -9,6 +9,17 @@ Page({
     data: [],
     PageId: ""
   },
+  swipclick:function(event){
+    console.log(event)
+    console.log("点击图片！")
+    var src = event.currentTarget.dataset.src//获取data-src
+    var imgList = event.currentTarget.dataset.list;//获取data-list
+    //图片预览
+    wx.previewImage({
+      current: src, // 当前显示图片的http链接
+      urls: imgList // 需要预览的图片http链接列表
+    })
+  },
   onLoad: function (options) {
     console.log('onLoad')
     var pageId = options.pageId
@@ -32,8 +43,6 @@ Page({
         console.log("!!!!")
         var data = res.data.data
         data.PublishTime = RelativeTime.relativeTime(data.PublishTime)
-        data.CreatedAt = RelativeTime.relativeTime(data.CreatedAt)
-        data.UpdatedAt = RelativeTime.relativeTime(data.UpdatedAt)
         that.setData({ data: res.data.data })
       }
     })
@@ -59,8 +68,6 @@ Page({
         // console.log("成功！！=+=")
         var data = res.data.data
         data.PublishTime = RelativeTime.relativeTime(data.PublishTime)
-        data.CreatedAt = RelativeTime.relativeTime(data.CreatedAt)
-        data.UpdatedAt = RelativeTime.relativeTime(data.UpdatedAt)
         that.setData({ data: res.data.data })
         wx.hideNavigationBarLoading();
         wx.stopPullDownRefresh();//关闭下拉刷新
