@@ -9,7 +9,17 @@ Page({
       data:[],
       keyword:"",
       page:1,
-      
+      current: 'index'
+  },
+  handleChange({ detail }) {
+    console.log(detail.key)
+    console.log("切换！")
+    this.setData({
+      current: detail.key
+    });
+    wx.redirectTo({
+      url: '/pages/' + this.data.current + '/' + this.data.current
+    })
   },
   onLoad: function () {
     console.log('onLoad')
@@ -163,7 +173,6 @@ Page({
         console.log("2",thisData)
         that.setData({data:thisData})
         wx.hideLoading();
-
       }
     })
   }

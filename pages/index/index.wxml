@@ -18,3 +18,7 @@
       <view slot="footer">点击卡片任意位置即可查看详情</view>
   </i-card>
 </view>
+<i-tab-bar current="{{ current }}" bindchange="handleChange" fixed>
+    <i-tab-bar-item key="index" icon="homepage" current-icon="homepage_fill" title="房源搜索"></i-tab-bar-item>
+    <i-tab-bar-item key="analysis" icon="group" current-icon="group_fill" title="数据分析"></i-tab-bar-item>
+</i-tab-bar>

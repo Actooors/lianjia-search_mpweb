@@ -10,8 +10,8 @@ Page({
     PageId: ""
   },
   swipclick:function(event){
-    console.log(event)
-    console.log("点击图片！")
+    // console.log(event)
+    // console.log("点击图片！")
     var src = event.currentTarget.dataset.src//获取data-src
     var imgList = event.currentTarget.dataset.list;//获取data-list
     //图片预览
